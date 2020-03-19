@@ -8,7 +8,7 @@ module.exports = {
   /* Your site config here */
   siteMetadata: {
     title: `Coolog`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `\n A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://coolog.netlify.com/`,
     home: {
       title: `Hi! I'm Coo`,
