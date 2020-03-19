@@ -98,10 +98,10 @@ PSPNet        FPN
 ============= ==============
 
 
-.. |unet_image| image:: https://github.com/qubvel/segmentation_models/blob/master/images/unet.png
-.. |linknet_image| image:: https://github.com/qubvel/segmentation_models/blob/master/images/linknet.png
-.. |psp_image| image:: https://github.com/qubvel/segmentation_models/blob/master/images/pspnet.png
-.. |fpn_image| image:: https://github.com/qubvel/segmentation_models/blob/master/images/fpn.png
+.. |unet_image| image:: https://github.com/cool21th/cooldelog/tree/master/public/assets/unet.png
+.. |linknet_image| image:: https://github.com/cool21th/cooldelog/tree/master/public/assets/linknet.png
+.. |psp_image| image:: https://github.com/cool21th/cooldelog/tree/master/public/assets/pspnet.png
+.. |fpn_image| image:: https://github.com/cool21th/cooldelog/tree/master/public/assets/fpn.png
 
 
 
