@@ -20,7 +20,7 @@ export default () => (
         <div className="primary-content">
           <h3>{data.site.siteMetadata.home.description}</h3>
         </div>
-//         <Link to='/contact' className="button -primary">Get in touch &rarr;</Link>
+
       </div>
     )}
   />
