@@ -3,6 +3,7 @@ template: BlogPost
 path: /Speech
 date: 2020-03-19T04:56:05.015Z
 title: Speech data 전처리 방법
+thumbnail: /assets/stt.png
 ---
 ### 오디오 파일 Read
 
