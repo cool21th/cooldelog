@@ -15,7 +15,7 @@ module.exports = {
       description: `Just do it now! There is nothing late for everything :)`,
     },
     /* W3Layouts domain verification key for contact forms https://my.w3layouts.com/Forms/ */
-    w3l_dom_key: `5e609f7a2d23fCF_Domain_verify` 
+    w3l_dom_key: `5e736cffe274cCF_Domain_verify` 
   },
   plugins: [
     {
