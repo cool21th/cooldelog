@@ -3,6 +3,7 @@ template: BlogPost
 path: /DataPreparation
 date: 2020-03-19T05:27:51.882Z
 title: Basic for Feature Engineering Techniques(피처 엔지니어링 테크닉)
+thumbnail: /assets/featureEngineering.png
 ---
 최근에 가장 많이 사용하고 있는 Boosting 계열(LightGBM, XGBoost) 및 Baggin계열을 활용한 분석 프로젝트에 있어서 Key가 되는 새로운 Feature(파생 변수 포함) 찾는 것이 분석의 핵심이라고 말할 수 있다.  업무 도메인에 따라, 데이터 종류에 따라 접근하는 방법은 매번 다를 것이지만, 가장 기본이 되는 테크닉을 몇가지 소개하고자 한다. 
 
@@ -119,12 +120,31 @@ df = pd.merge(df, temp, on='card1', how='left')
 
 ```
 
-Normalize/ Standardize
+#### Normalize/ Standardize
+
+* 칼럼 내에서 Normalize하는 방법
+
+```python
+
+df[col]= ((df[col] - df[col].mean)) / df[col].std()
+
+```
 
 
+* 다른 컬럼을 기준으로 Normalize하는 방법
+
+```python
+
+df['D3_remove_time'] = df['D3'] - df['D3_week_mean']
+
+```
+
+'D3_remove_time' 은 시간을 기준으로 정규화 작업을 했기 때문에 계속 증가하지 않는다.
 
 
-Outlier Removal / Relax / Smooth/ PCA
+#### Outlier Removal / Relax / Smooth/ PCA
+
+오버피팅이나 모델의 성능을 위해 outlier 데이터는 보통 제거한다. 하지만, 이상현상 탐지가 목적인 경우에는 Smoothing Technique 을 사용한다. 예를 들어 frequency encoding 을 사용하여, 0.1% 미만인 value 들을 -9999 와 같은 새로운 값으로 대체하여 제거하는 방법이 있
 
 
 
