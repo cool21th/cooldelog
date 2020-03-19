@@ -3,7 +3,7 @@ template: BlogPost
 path: /Vision
 date: 2020-03-19T13:26:15.000Z
 title: Pretrained Segmentation Library 소개
-thumbnail: /assets/Segmentation Models.png
+thumbnail: ''
 ---
 이미지에서 활용할 수 있는 Pretrained 모델들이 있는데, 누구나 쉽게 사용할 수 있는 Python Library를 소개하고자 합니다. 
 
@@ -18,9 +18,11 @@ thumbnail: /assets/Segmentation Models.png
 
 2. 사용방법
 
-.. code:: python
+```python
 
     import segmentation_models as sm
+
+```
 
 기본적으로 Keras framework 을 사용하나, tensorflow.keras 를 import 해서 사용할 경우 다음과 같이 환경변수를 변경해줘야 한다.
 
@@ -28,7 +30,7 @@ thumbnail: /assets/Segmentation Models.png
 - Change framework ``sm.set_framework('keras')`` /  ``sm.set_framework('tf.keras')``
 
 
-.. code:: python
+```python
 
     import keras
     # or from tensorflow import keras
@@ -45,11 +47,12 @@ thumbnail: /assets/Segmentation Models.png
     # Input 변경시
     model = Unet('resnet34', input_shape=(None, None, 6), encoder_weights=None)
 
+```
 
 
 3. 샘플 예제
 
-.. code:: python
+```python
 
     import segmentation_models as sm
 
@@ -82,6 +85,7 @@ thumbnail: /assets/Segmentation Models.png
        validation_data=(x_val, y_val),
     )
 
+```
 
 **Architecture**
 
