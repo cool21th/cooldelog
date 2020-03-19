@@ -12,7 +12,7 @@ module.exports = {
     siteUrl: `https://coolog.netlify.com/`,
     home: {
       title: `Hi! I'm Coo`,
-      description: `I have been specifically designed to become a digital home for designers and developers, help them build amazing professional looking websites with ease. You don't have to worry about nitty gritty of web hosting services to run a blog and yet take full advantage of CMS to manage content :)`,
+      description: `Just do it now! There is nothing late for everything :)`,
     },
     /* W3Layouts domain verification key for contact forms https://my.w3layouts.com/Forms/ */
     w3l_dom_key: `5e609f7a2d23fCF_Domain_verify` 
