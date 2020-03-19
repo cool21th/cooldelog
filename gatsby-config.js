@@ -8,11 +8,11 @@ module.exports = {
   /* Your site config here */
   siteMetadata: {
     title: `Coolog`,
-    description: `\n A starter blog demonstrating what Gatsby can do.`,
+    description: 'A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://coolog.netlify.com/`,
     home: {
-      title: `Hi! I'm Coo`,
-      description: `Just do it now! There is nothing late for everything :)`,
+      title: `HI! I'm Coo`,
+      description: `I want to writte everyhing in here. Time is very fast, however my memory is very limited. There is nothing late for everything :) Just do it, do it, do it !!`,
     },
     /* W3Layouts domain verification key for contact forms https://my.w3layouts.com/Forms/ */
     w3l_dom_key: `5e736cffe274cCF_Domain_verify` 
