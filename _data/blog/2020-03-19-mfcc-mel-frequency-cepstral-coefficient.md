@@ -3,6 +3,7 @@ template: BlogPost
 path: /Speech
 date: 2020-03-19T05:18:36.758Z
 title: MFCC(Mel-Frequency Cepstral Coefficient)
+thumbnail: /assets/mfcc.png
 ---
 ### MFCC(Mel-Frequency Cepstral Coefficient)\[https://brightwon.tistory.com/11]
 
