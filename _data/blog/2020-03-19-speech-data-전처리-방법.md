@@ -12,6 +12,8 @@ fname = '../input/freesound-audio-tagging/audio_train/' + '00044347.wav'
 ipd.Audio(fname)
 ```
 
+
+
 ```python
 import IPython.display as ipd
 fname = '../input/freesound-audio-tagging/audio_train/' + '00044347.wav'
@@ -37,8 +39,6 @@ print("Duration = ", wav.getnframes()/wav.getframerate())
 
   Duration =  14.0
 
-
-
 ```python
 from scipy.io import wavfile
 rate, data = wavfile.read(fname)
@@ -58,6 +58,10 @@ print(data)
 type(wav)  은 wave.Wave_read 형태
 
 type(data) 은 numpy.ndarray 형태로 구성된다
+
+
+
+
 
 둘다 total sampling을 볼 수 있지만, plot을 그리기 위해서는 float 을 인수로 받는 Scipy.io 패키지를 이용하는 것이 좋아 보인다. 
 
