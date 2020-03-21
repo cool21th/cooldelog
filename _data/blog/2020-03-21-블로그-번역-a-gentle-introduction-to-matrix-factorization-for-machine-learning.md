@@ -7,13 +7,13 @@ thumbnail: /assets/matrixfactorization.png
 ---
 ### Overview
 
-Matrix Factorization(행렬 분해)는 한정된 컴퓨팅 파워를 가지고 최대 효율을 누릴 수 있는 방법입니다. 복잡한 행렬 연산을 쉽게 계산할 수 있도록 구성부분으로 줄임으로써 가능합니다.\
+Matrix Factorization(행렬 분해)는 한정된 컴퓨팅 파워를 가지고 최대 효율을 누릴 수 있는 방법입니다. 복잡한 행렬 연산을 쉽게 계산할 수 있도록 구성부분으로 줄임으로써 가능합니다.
 대수학(linear algebra), 역함수 등이 주된 계산을 합니다.
 
 ### Matrix Decomposition
 
-Matrix decomposition은 행렬 그대로 복잡한 계산을 수행하는 것이 아니라, 행렬을 분해해서 계산을 단순하게 만드는 방법입니다. \
-가장 적합한 예로 10을 2 x 5로 변환하는 숫자의 인수분해를 들수 있습니다. 그래서 Matrix Factorization 이라고 부르기도 합니다.\
+Matrix decomposition은 행렬 그대로 복잡한 계산을 수행하는 것이 아니라, 행렬을 분해해서 계산을 단순하게 만드는 방법입니다. 
+가장 적합한 예로 10을 2 x 5로 변환하는 숫자의 인수분해를 들수 있습니다. 그래서 Matrix Factorization 이라고 부르기도 합니다.
 가장많이 쓰이는 방법은 LU, QR Matrix Decomposition이다.
 
 ### LU Matrix Decomposition
@@ -35,6 +35,7 @@ LU decomposition은 정사각행렬을 위한 것으로, L 과 U 성분으로 �
 > ```
 > A = P.L.U
 > ```
+
 
 P 는 결과를 치환하거나 원래 순서로 반환하는 방법을 지정합니다 \
 LU분해는 주로 선형회귀 분석에서 계수를 찾거나, 대수에서 해를 단순화 하는데 사용됩니다 \
