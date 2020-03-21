@@ -1,7 +1,7 @@
 ---
 template: BlogPost
 path: /nlp/conditionalrandomfieldmodel
-date: 2020-03-21T15:51:27.688Z
+date: 2018-10-15T15:51:00.000Z
 title: >-
   [블로그 번역]Complete tutorial on Text Classification using Conditional Random
   Fields Model(작업중)
