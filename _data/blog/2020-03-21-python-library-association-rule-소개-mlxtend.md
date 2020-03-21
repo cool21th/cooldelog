@@ -2,7 +2,7 @@
 template: BlogPost
 path: /machinlearning/associationrule
 date: 2020-03-21T14:04:57.223Z
-title: '[Python Library] Association Rule 소개(mlxtend)'
+title: '[머신러닝 알고리즘] Association Rule 소개(mlxtend)'
 thumbnail: /assets/mlxtend.png
 ---
 ## overview
