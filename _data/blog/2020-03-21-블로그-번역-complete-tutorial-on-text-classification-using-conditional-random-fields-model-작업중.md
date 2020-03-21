@@ -5,6 +5,7 @@ date: 2018-10-15T15:51:00.000Z
 title: >-
   [블로그 번역]Complete tutorial on Text Classification using Conditional Random
   Fields Model(작업중)
+thumbnail: /assets/crf.png
 ---
 ### Complete tutorial on Text Classification using Conditional Random Fields Model(in Python)
 
