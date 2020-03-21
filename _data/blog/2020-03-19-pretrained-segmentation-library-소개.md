@@ -1,8 +1,8 @@
 ---
 template: BlogPost
-path: /Vision
+path: /Vision/pretrainedsegmentation
 date: 2020-03-19T13:26:15.000Z
-title: Pretrained Segmentation Library 소개
+title: '[Python Library] Pretrained Segmentation Library 소개'
 thumbnail: /assets/Segmentation Models.png
 ---
 이미지에서 활용할 수 있는 Pretrained 모델들이 있는데, 누구나 쉽게 사용할 수 있는 Python Library를 소개하고자 합니다. 
@@ -19,12 +19,10 @@ thumbnail: /assets/Segmentation Models.png
 2. 사용방법
 
 ```python
-
     import segmentation_models as sm
-
 ```
 
-기본적으로 Keras framework 을 사용하나, tensorflow.keras 를 import 해서 사용할 경우 다음과 같이 환경변수를 변경해줘야 한다.
+기본적으로 Keras framework 을 사용하나, tensorflow.keras 를 import 해서 사용할 경우 다음과 같이 환경변수를 변경해줘야 합니다.
 
 - Provide environment variable ``SM_FRAMEWORK=keras`` / ``SM_FRAMEWORK=tf.keras`` before import ``segmentation_models``
 - Change framework ``sm.set_framework('keras')`` /  ``sm.set_framework('tf.keras')``
@@ -102,10 +100,10 @@ PSPNet        FPN
 ============= ==============
 
 
-.. |unet_image| image:: https://github.com/cool21th/cooldelog/tree/master/public/assets/unet.png
-.. |linknet_image| image:: https://github.com/cool21th/cooldelog/tree/master/public/assets/linknet.png
-.. |psp_image| image:: https://github.com/cool21th/cooldelog/tree/master/public/assets/pspnet.png
-.. |fpn_image| image:: https://github.com/cool21th/cooldelog/tree/master/public/assets/fpn.png
+.. |unet_image| ![unet](https://github.com/cool21th/cooldelog/tree/master/public/assets/unet.png)
+.. |linknet_image| ![linknet](https://github.com/cool21th/cooldelog/tree/master/public/assets/linknet.png)
+.. |psp_image| ![psp](https://github.com/cool21th/cooldelog/tree/master/public/assets/pspnet.png)
+.. |fpn_image| ![fpn](https://github.com/cool21th/cooldelog/tree/master/public/assets/fpn.png)
 
 
 
