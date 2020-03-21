@@ -3,6 +3,7 @@ template: BlogPost
 path: /machinelearning/matrixfactorizationintro
 date: 2018-12-29T16:22:34.564Z
 title: '[블로그 번역]A Gentle Introduction to Matrix Factorization for Machine Learning'
+thumbnail: /assets/matrixfactorization.png
 ---
 ### Overview
 
