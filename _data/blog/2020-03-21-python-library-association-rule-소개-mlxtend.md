@@ -18,7 +18,7 @@ Frequent 패턴 마이닝에서 규칙을 생성하는 것은 일반적인 작�
 
 ## Metrics
 
-1. Support
+**1. Support**
 
 > ```
 > support(A → C) = support(A U C), range:[0,1]
@@ -32,14 +32,16 @@ Frequent 패턴 마이닝에서 규칙을 생성하는 것은 일반적인 작�
 > C = ['Milk', 'Apple', 'Kidney Beans', 'Eggs'],
 > D = ['Milk', 'Unicorn', 'Corn', 'Kidney Beans', 'Yogurt'],
 > E = ['Corn', 'Onion', 'Onion', 'Kidney Beans', 'Ice cream', 'Eggs']
-
+>
 > Egg는 A, B, C, E 집합에 있으므로 support 값은 0.8
 > MilK는 A, C, D 집합에 있으므로 support 값은 0.6
 > Kidney Beans, Eggs 는 A, B, C, D, E / A, B, C, E  있으므로 0.8
 > Onion, Eggs 는 A, B, E / A, B, C, E 이나 Onion이 선행이므로 0.6
 > ```
 
+
 > mlxtend에서의 support 항목은 총 3가지 입니다. (Antecedent support, Consequent support, Support)
+
 
 > * Antecedent support : 선행한 Transaction의 비율을 의미하며, 위 식에 A에 해당. 
 > * Consequent support : 후행한 Transaction의 비율을 의미하며, 위 식에 C에 해당.
@@ -47,7 +49,8 @@ Frequent 패턴 마이닝에서 규칙을 생성하는 것은 일반적인 작�
 
 > frequent itemsets으로 명명하는 집합은 최소 support 임계값보다 큰 support 값을 가지게 됩니다. 일반적으로 downward closure property에 따라 frequent itemsets의 하위 집합 역시 빈번함으로 측정합니다. 
 
-2. Confidence
+
+**2. Confidence**
 
 > ```
 > confidence(A → C) = support(A → C)/support(A),range: [0,1]
@@ -55,7 +58,7 @@ Frequent 패턴 마이닝에서 규칙을 생성하는 것은 일반적인 작�
 
 > confidence는 후행의 Transaction(C)이 선행 Transaction(A)에 연쇄적으로 일어날 확률을 의미하며(1이 최대값), A → C, C → A 의 confidence값은 서로 비대칭인 결과값이 나옵니다. 
 
-3. Lift
+**3. Lift**
 
 > ``` 
 > lift(A → C) = confidence(A → C) /support(C),range: [0,∞]
@@ -63,7 +66,8 @@ Frequent 패턴 마이닝에서 규칙을 생성하는 것은 일반적인 작�
 
 > Lift는 A, C가 독립사건일 때 보다 얼마나 자주 발생했는지를 측정합니다.    A, C가 서로 독립사건이면 Lift 값은 1 로 결정됩니다. 
 
-4. Leverage
+
+**4. Leverage**
 
 > ```
 > levarage(A → C) = support(A → C) − support(A) × support(C),range: [−1,1]
@@ -71,7 +75,8 @@ Frequent 패턴 마이닝에서 규칙을 생성하는 것은 일반적인 작�
 
 > Leverage 는 A, C가 독립사건일 때와 얼마나 다른지를 비교합니다.    A, C가 서로 독립사건이면 값은 0이 됩니다. 
 
-5. Conviction
+
+**5. Conviction**
 
 > ```
 > conviction(A → C) = 1 − support(C) / 1 − confidence(A → C),range: [0,∞]
