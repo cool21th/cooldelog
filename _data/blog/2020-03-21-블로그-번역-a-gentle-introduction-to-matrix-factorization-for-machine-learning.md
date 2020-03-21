@@ -20,9 +20,10 @@ Matrix decomposition은 행렬 그대로 복잡한 계산을 수행하는 것이
 
 LU decomposition은 정사각행렬을 위한 것으로, L 과 U 성분으로 분해합니
 
-```
-A = L.U
-```
+> ```
+> A = L.U
+> ```
+
 > A: 분해 대상 정사각 행렬(square matrix) 
 > L: 아래 삼각형 행렬(lower triangle matrix)
 > U: 위 삼각형 행렬(higer triangle matrix)
@@ -31,9 +32,10 @@ A = L.U
 
 실제적으로 더 안정된방법은 LUP분해(부분피벗을 사용한 LU분해)입니다.
 
-```
-A = P.L.U
-```
+> ```
+> A = P.L.U
+> ```
+
 P 는 결과를 치환하거나 원래 순서로 반환하는 방법을 지정합니다 \
 LU분해는 주로 선형회귀 분석에서 계수를 찾거나, 대수에서 해를 단순화 하는데 사용됩니다 \
 
@@ -57,13 +59,13 @@ print(B)
 ```
 
 
-3. QR Matrix Decomposition
+### QR Matrix Decomposition
 
 QR Decomposition 은 m X n 행렬에 대한 것으로 행렬을 Q, R 구성 요소로 분해합니다. 즉, 원래 행렬이 정사각 행렬이 아니어도 됩니다 \
 
-```
-A = Q.R
-```
+> ```
+> A = Q.R
+> ```
 
 > A: 분해 대상 행렬 Q: 크기가 m X m 인 행렬
 > R: 크기가 m X n 인 상단 삼각 행렬
@@ -86,25 +88,28 @@ B = Q.dot(R)
 print(B)
 ```
 
-4. Cholesky Decomposition
+### Cholesky Decomposition
 
 Cholesky Decomposition은 모든 고유 값(eigen value)이 0보다 큰 정사각행렬에 대한 것입이다.\
 실수에 대한 분해에 중점으로 수행합니다(복소수 사례 무시)
 
-```
-A = L.L^T
-```
+> ```
+> A = L.L^T
+> ```
+
 > L: lower triangle matrix 
 > L^T: transpose of L
 
-```
-A = U^T.U
-```
+> ```
+> A = U^T.U
+> ```
+
 > L: lower triangle matrix 
 > U: Upper triangle matrix
 
 
 Cholesky decomposition은 선형회귀에 대한 최소제곱근 및 시뮬레이션/ 최적화 방법에 사용하며, LU 보다 2배 가까이 좋은 효율을 가지고 있습니다 \
+
 
 **python code**
 
