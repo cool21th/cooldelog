@@ -24,8 +24,8 @@ LU decomposition은 정사각행렬을 위한 것으로, L 과 U 성분으로 �
 > A = L.U
 > ```
 
-> A: 분해 대상 정사각 행렬(square matrix) 
-> L: 아래 삼각형 행렬(lower triangle matrix)
+> A: 분해 대상 정사각 행렬(square matrix) \
+> L: 아래 삼각형 행렬(lower triangle matrix)\
 > U: 위 삼각형 행렬(higer triangle matrix)
 
 주의할 점은 LU 분해는 반복적인 수치 프로세스를 사용하며, 분해되지 않거나 쉽게 분해되는 경우에는 사용할수 없습니다
@@ -67,7 +67,7 @@ QR Decomposition 은 m X n 행렬에 대한 것으로 행렬을 Q, R 구성 요�
 > A = Q.R
 > ```
 
-> A: 분해 대상 행렬 Q: 크기가 m X m 인 행렬
+> A: 분해 대상 행렬 Q: 크기가 m X m 인 행렬 \
 > R: 크기가 m X n 인 상단 삼각 행렬
 
 **python code**
@@ -97,14 +97,14 @@ Cholesky Decomposition은 모든 고유 값(eigen value)이 0보다 큰 정사�
 > A = L.L^T
 > ```
 
-> L: lower triangle matrix 
+> L: lower triangle matrix \
 > L^T: transpose of L
 
 > ```
 > A = U^T.U
 > ```
 
-> L: lower triangle matrix 
+> L: lower triangle matrix \
 > U: Upper triangle matrix
 
 
