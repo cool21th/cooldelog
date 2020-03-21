@@ -62,7 +62,8 @@ print(B)
 
 ### QR Matrix Decomposition
 
-QR Decomposition 은 m X n 행렬에 대한 것으로 행렬을 Q, R 구성 요소로 분해합니다. 즉, 원래 행렬이 정사각 행렬이 아니어도 됩니다 \
+QR Decomposition 은 m X n 행렬에 대한 것으로 행렬을 Q, R 구성 요소로 분해합니다. 즉, 원래 행렬이 정사각 행렬이 아니어도 됩니다 
+
 
 > ```
 > A = Q.R
@@ -109,7 +110,7 @@ Cholesky Decomposition은 모든 고유 값(eigen value)이 0보다 큰 정사�
 > U: Upper triangle matrix
 
 
-Cholesky decomposition은 선형회귀에 대한 최소제곱근 및 시뮬레이션/ 최적화 방법에 사용하며, LU 보다 2배 가까이 좋은 효율을 가지고 있습니다 \
+Cholesky decomposition은 선형회귀에 대한 최소제곱근 및 시뮬레이션/ 최적화 방법에 사용하며, LU 보다 2배 가까이 좋은 효율을 가지고 있습니다 
 
 
 **python code**
