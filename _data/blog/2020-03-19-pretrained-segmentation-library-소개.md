@@ -2,7 +2,7 @@
 template: BlogPost
 path: /Vision/pretrainedsegmentation
 date: 2020-03-19T13:26:15.000Z
-title: '[Python Library] Pretrained Segmentation Library 소개'
+title: '[딥러닝 알고리즘] Pretrained Segmentation Library 소개'
 thumbnail: /assets/Segmentation Models.png
 ---
 이미지에서 활용할 수 있는 Pretrained 모델들이 있는데, 누구나 쉽게 사용할 수 있는 Python Library를 소개하고자 합니다. 
