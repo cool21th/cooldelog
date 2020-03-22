@@ -76,6 +76,73 @@ Eigenvector는 길이 또는 크기(magnitude)가 1.0인 단위 벡터이고, �
 >
 > 선형대수 관점에서 보면 row 방향으로 계산하는 방법과 column 방향으로 계산하는 방법 2가지 있는데, row 방향계산은 내적을 의미하고, column 방향계산은 선형결합을 의미한다는 것을 알 수 있다
 
+
+### Calculation of Eigendecomposition
+
+Numpy의 eig 함수를 써서 계산하는 코드는 다음과 같습니다
+
+> ```python
+> # eigendecomposition
+> from numpy import array
+> from numpy.linalg import eig
+> # define matrix
+> A = array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+> print(A)
+> # calculate eigendecomposition
+> values, vectors = eig(A)
+> print(values)
+> print(vectors)
+> ```
+
+
+### Confirm an Eigenvector and Eigenvalue
+
+증명하는 코드는 다음과 같습니다. 
+
+> ```python
+> # confirm eigenvector
+> from numpy import array
+> from numpy.linalg import eig
+> # define matrix
+> A = array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+> # calculate eigendecomposition
+> values, vectors = eig(A)
+> # confirm first eigenvector
+> B = A.dot(vectors[:, 0])
+> print(B)
+> C = vectors[:, 0] * values[0]
+> print(C)
+> ```
+
+
+### Reconstruct Original Matrix
+
+주어진 eigenvector, eigenvalue 만으로 원래 행렬 A 를 B로 재구성하는 코드입니다.
+
+> ```python
+> # reconstruct matrix
+> from numpy import diag
+> from numpy import dot
+> from numpy.linalg import inv
+> from numpy import array
+> from numpy.linalg import eig
+> # define matrix
+> A = array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+> print(A)
+> # calculate eigenvectors and eigenvalues
+> values, vectors = eig(A)
+> # create matrix from eigenvectors
+> Q = vectors
+> # create inverse of eigenvectors matrix
+> R = inv(Q)
+> # create diagonal matrix from eigenvalues
+> L = diag(values)
+> # reconstruct the original matrix
+> B = Q.dot(L).dot(R)
+> print(B)
+> ```
+
 참고자료: \
-[The Geometry of Linear Equations](https://twlab.tistory.com/6?category=668741)
+[Gentle Introduction to Eigenvalues and Eigenvectors for Machine Learning](https://machinelearningmastery.com/introduction-to-eigendecomposition-eigenvalues-and-eigenvectors/)\
+[The Geometry of Linear Equations](https://twlab.tistory.com/6?category=668741)\
 [고유값(eigenvalues)과 고유벡터(eigenvectors)](https://twlab.tistory.com/46)
