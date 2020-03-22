@@ -5,6 +5,7 @@ date: 2018-12-31T04:43:58.848Z
 title: >-
   [블로그 번역] Gentle Introduction to Eigenvalues and Eigenvectors for Machine
   Learning
+thumbnail: /assets/eigenvector.png
 ---
 ### Overview
 
