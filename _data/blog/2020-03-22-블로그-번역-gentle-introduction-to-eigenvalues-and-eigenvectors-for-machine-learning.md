@@ -43,15 +43,17 @@ Eigenvalue 공식에 따르면, 정사각행렬 A는 1 개의 eigenvector와 각
 
 Eigenvector는 길이 또는 크기(magnitude)가 1.0인 단위 벡터이고, 보통 right vector(Column vector)라고 말합니. 음의 값은 방향이 반대를 의미합니다
 
-> right vector 추가 설명
+> **right vector 추가 설명**
 
+ 
 ![rightvector](/assets/rightvector.png "rightvector")
 
-> A: x에 대한 계수 행렬
-> x: 미지수 벡터
-> b: right vector
+> A: x에 대한 계수 행렬 \
+> x: 미지수 벡터 \
+> b: right vector 
 
-
+\
+\
 ![column](/assets/column.png "column")
 
 > 그림을 보면 이와 같이 b(right vector)는 칼럼 벡터만을 의미하는 것을 알수 있다.
