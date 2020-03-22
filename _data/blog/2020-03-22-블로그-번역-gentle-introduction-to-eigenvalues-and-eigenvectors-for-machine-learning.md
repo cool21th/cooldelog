@@ -9,7 +9,7 @@ thumbnail: /assets/eigenvector.png
 ---
 ### Overview
 
-앞서 [Matrix Factorization 기본적인 내용](https://coolog.netlify.com/machinelearning/matrixfactorizationintro)을 기술한 내용을 보면 Matrix decomposition은 복잡한 연산 범위를 단순화 시켜 효율적인 계산을 도와주는 방법인 것을 알 수 있었습니다.  가장많이 사용하는 Matrix decomposition 유형은 eigenvector(고유벡터)와 eigenvalues(고유 값) 분해하는 것입니다. 이러한 형태의 분해는 PCA(Principal Component Analysis)와 같은 머신러닝에서 주요 역할을 합니다. 
+앞서 [Matrix Factorization 기본적인 내용](https://coolog.netlify.com/machinelearning/matrixfactorizationintro)을 기술한 내용을 보면 Matrix decomposition은 복잡한 연산 범위를 단순화 시켜 효율적인 계산을 도와주는 방법인 것을 알 수 있었습니다. 가장많이 사용하는 Matrix decomposition 유형은 eigenvector(고유벡터)와 eigenvalues(고유 값) 분해하는 것입니다. 이러한 형태의 분해는 PCA(Principal Component Analysis)와 같은 머신러닝에서 주요 역할을 합니다. 
 
 ### Eigendecomposition of a Matrix
 
