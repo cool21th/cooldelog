@@ -74,7 +74,10 @@ predicted = model.predict(dataset.data)
 # summarize the fit of the model
 print(metrics.classification_report(expected, predicted))
 print(metrics.confusion_matrix(expected, predicted))
+
 ```
+
+
 
 ### Example:[Data Rescaling](https://machinelearningmastery.com/rescaling-data-for-machine-learning-in-python-with-scikit-learn/)
 
@@ -82,7 +85,7 @@ print(metrics.confusion_matrix(expected, predicted))
 기준이 서로 다르기 때문에 이러한 경우 데이터를 2가지 방법을 주로 사용합니다. Normalization과 Standardization 입니다. 
 
 
-##### Data Normalization
+1. Data Normalization
 
 Normalization은 numeric 속성인 데이터를 0과 1범위안으로 rescaling 하는 방법입니다. 
 
@@ -104,7 +107,9 @@ normalized_X = preprocessing.normalize(X)
 
 ```
 
-##### Data Standardization
+
+
+2. Data Standardization
 
 Standardization은 평균이 0이고 표준 편차가 1이 되도록 각 속성의 의 분포를 이동시키는 방법입니다. 
 
@@ -127,6 +132,8 @@ standardized_X = preprocessing.scale(X)
 ```
 
 
+
+
 ### [Feature Selection](https://machinelearningmastery.com/feature-selection-machine-learning-python/)
 
 Feature selection은 예측 변수 또는 도출하고 싶은 결과에 기여하는 feature들을 선택하는 방법입니다. 
@@ -142,7 +149,8 @@ Feature selection을 통해 얻는 이점은 다음과 같이 3가지 입니다.
 선형대수를 적용한 Principal Component Analysis, 변수 하나에 대한 통계학적인 접근(Univariate Selection) 등이 있습니다
 
 
-##### Recursive Feature Elimination
+
+1. Recursive Feature Elimination
 
 Recursive Feature Elimination 은 모델의 속성을 재귀적으로 제거하고, 모델링함으로써 정확도가 가장 높은 속성 조합을 찾아냅니다. 
 
@@ -167,7 +175,8 @@ print(rfe.ranking_)
 ```
 
 
-##### Feature Importance
+
+2. Feature Importance
 
 Feature Importance는 decision tree 기반의 앙상블모델(Random Forest or extra trees)들의 상대적인 중요 속성을 찾는데 사용합니다. 
 
@@ -187,14 +196,15 @@ print(model.feature_importances_)
 
 ```
 
-##### Principal Component Analysis
+
+
+3. Principal Component Analysis
 
 PCA는 선형대수를 사용하여 데이터들을 압축한 형태로 변환합니다.
 
 일반적으로 Data reduction 기술이라고 말하고, PCA 결과로 차원의 수 또는 구성 요소들을 선택할 수 있습니다. 
 
 ```python
-
 
 # Feature Extraction with PCA
 import numpy
@@ -217,7 +227,8 @@ print(fit.components_)
 ```
 
 
-##### Univariate Selection
+
+4. Univariate Selection
 
 Output 변수와 가장 밀접한 feature를 찾는 방법론입니다. 
 Scikit-learn에서는 SelectKBest 를 제공해 다양한 통계적 기법과 병행해서 사용할 수 있도록 도와줍니다. 
@@ -268,7 +279,9 @@ print(features[0:5,:])
 
 Scikit-learn에서는 hyper parameter 튜닝전략을 grid search와 random search 두가지 제시합니다. 
 
-##### Grid Search Parameter Tuning
+
+
+1. Grid Search Parameter Tuning
 
 Grid Search는 알고리즘 파라미터 조합을 grid 형식으로 모델에 적용해 평가하는 방법입니다. 
 
@@ -295,7 +308,9 @@ print(grid.best_estimator_.alpha)
 ```
 
 
-##### Random Search Parameter Tuning
+
+
+2. Random Search Parameter Tuning
 
 Random search는 Random distribution으로 부터 알고리즘의 parameter들을 샘플링해서 튜닝하는 방법입니다. 
 
