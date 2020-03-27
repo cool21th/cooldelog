@@ -87,50 +87,47 @@ print(metrics.confusion_matrix(expected, predicted))
 
 1. Data Normalization
 
-Normalization은 numeric 속성인 데이터를 0과 1범위안으로 rescaling 하는 방법입니다. 
+> Normalization은 numeric 속성인 데이터를 0과 1범위안으로 rescaling 하는 방법입니다. 
+> kNN 과 같이 distance에 의존하는 모델에 적합한 방법입니다. 
 
-kNN 과 같이 distance에 의존하는 모델에 적합한 방법입니다. 
-
-```python
-
-# Normalize the data attributes for the Iris dataset.
-from sklearn.datasets import load_iris
-from sklearn import preprocessing
-# load the iris dataset
-iris = load_iris()
-print(iris.data.shape)
-# separate the data from the target attributes
-X = iris.data
-y = iris.target
-# normalize the data attributes
-normalized_X = preprocessing.normalize(X)
-
-```
+> ```python
+> 
+> # Normalize the data attributes for the Iris dataset.
+> from sklearn.datasets import load_iris
+> from sklearn import preprocessing
+> # load the iris dataset
+> iris = load_iris()
+> print(iris.data.shape)
+> # separate the data from the target attributes
+> X = iris.data
+> y = iris.target
+> # normalize the data attributes
+> normalized_X = preprocessing.normalize(X)
+> 
+> ```
 
 
 
 2. Data Standardization
 
-Standardization은 평균이 0이고 표준 편차가 1이 되도록 각 속성의 의 분포를 이동시키는 방법입니다. 
-
-Gaussian 을 활용한 모델링에 적합한 방법입니다. 
-
-```python
-
-# Standardize the data attributes for the Iris dataset.
-from sklearn.datasets import load_iris
-from sklearn import preprocessing
-# load the Iris dataset
-iris = load_iris()
-print(iris.data.shape)
-# separate the data and target attributes
-X = iris.data
-y = iris.target
-# standardize the data attributes
-standardized_X = preprocessing.scale(X)
-
-```
-
+> Standardization은 평균이 0이고 표준 편차가 1이 되도록 각 속성의 의 분포를 이동시키는 방법입니다. 
+> Gaussian 을 활용한 모델링에 적합한 방법입니다. 
+> 
+> ```python
+> 
+> # Standardize the data attributes for the Iris dataset.
+> from sklearn.datasets import load_iris
+> from sklearn import preprocessing
+> # load the Iris dataset
+> iris = load_iris()
+> print(iris.data.shape)
+> # separate the data and target attributes
+> X = iris.data
+> y = iris.target
+> # standardize the data attributes
+> standardized_X = preprocessing.scale(X)
+> 
+> ```
 
 
 
@@ -152,121 +149,108 @@ Feature selection을 통해 얻는 이점은 다음과 같이 3가지 입니다.
 
 1. Recursive Feature Elimination
 
-Recursive Feature Elimination 은 모델의 속성을 재귀적으로 제거하고, 모델링함으로써 정확도가 가장 높은 속성 조합을 찾아냅니다. 
-
-```python
-
-# Recursive Feature Elimination
-from sklearn import datasets
-from sklearn.feature_selection import RFE
-from sklearn.linear_model import LogisticRegression
-# load the iris datasets
-dataset = datasets.load_iris()
-# create a base classifier used to evaluate a subset of attributes
-model = LogisticRegression()
-# create the RFE model and select 3 attributes
-rfe = RFE(model, 3)
-rfe = rfe.fit(dataset.data, dataset.target)
-# summarize the selection of the attributes
-print(rfe.support_)
-print(rfe.ranking_)
-
-
-```
-
-
+> Recursive Feature Elimination 은 모델의 속성을 재귀적으로 제거하고, 모델링함으로써 정확도가 가장 높은 속성 조합을 찾아냅니다. 
+> 
+> ```python
+> 
+> # Recursive Feature Elimination
+> from sklearn import datasets
+> from sklearn.feature_selection import RFE
+> from sklearn.linear_model import LogisticRegression
+> # load the iris datasets
+> dataset = datasets.load_iris()
+> # create a base classifier used to evaluate a subset of attributes
+> model = LogisticRegression()
+> # create the RFE model and select 3 attributes
+> rfe = RFE(model, 3)
+> rfe = rfe.fit(dataset.data, dataset.target)
+> # summarize the selection of the attributes
+> print(rfe.support_)
+> print(rfe.ranking_)
+> ```
 
 2. Feature Importance
 
-Feature Importance는 decision tree 기반의 앙상블모델(Random Forest or extra trees)들의 상대적인 중요 속성을 찾는데 사용합니다. 
-
-```python
-
-# Feature Importance
-from sklearn import datasets
-from sklearn import metrics
-from sklearn.ensemble import ExtraTreesClassifier
-# load the iris datasets
-dataset = datasets.load_iris()
-# fit an Extra Trees model to the data
-model = ExtraTreesClassifier()
-model.fit(dataset.data, dataset.target)
-# display the relative importance of each attribute
-print(model.feature_importances_)
-
-```
+> Feature Importance는 decision tree 기반의 앙상블모델(Random Forest or extra trees)들의 상대적인 중요 속성을 찾는데 사용합니다. 
+> 
+> ```python
+> 
+> # Feature Importance
+> from sklearn import datasets
+> from sklearn import metrics
+> from sklearn.ensemble import ExtraTreesClassifier
+> # load the iris datasets
+> dataset = datasets.load_iris()
+> # fit an Extra Trees model to the data
+> model = ExtraTreesClassifier()
+> model.fit(dataset.data, dataset.target)
+> # display the relative importance of each attribute
+> print(model.feature_importances_)
+> ```
 
 
 
 3. Principal Component Analysis
 
-PCA는 선형대수를 사용하여 데이터들을 압축한 형태로 변환합니다.
-
-일반적으로 Data reduction 기술이라고 말하고, PCA 결과로 차원의 수 또는 구성 요소들을 선택할 수 있습니다. 
-
-```python
-
-# Feature Extraction with PCA
-import numpy
-from pandas import read_csv
-from sklearn.decomposition import PCA
-# load data
-url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.csv"
-names = ['preg', 'plas', 'pres', 'skin', 'test', 'mass', 'pedi', 'age', 'class']
-dataframe = read_csv(url, names=names)
-array = dataframe.values
-X = array[:,0:8]
-Y = array[:,8]
-# feature extraction
-pca = PCA(n_components=3)
-fit = pca.fit(X)
-# summarize components
-print("Explained Variance: %s" % fit.explained_variance_ratio_)
-print(fit.components_)
-
-```
+> PCA는 선형대수를 사용하여 데이터들을 압축한 형태로 변환합니다.
+> 
+> 일반적으로 Data reduction 기술이라고 말하고, PCA 결과로 차원의 수 또는 구성 요소들을 선택할 수 있습니다. 
+> 
+> ```python
+> # Feature Extraction with PCA
+> import numpy
+> from pandas import read_csv
+> from sklearn.decomposition import PCA
+> # load data
+> url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.csv"
+> names = ['preg', 'plas', 'pres', 'skin', 'test', 'mass', 'pedi', 'age', 'class']
+> dataframe = read_csv(url, names=names)
+> array = dataframe.values
+> X = array[:,0:8]
+> Y = array[:,8]
+> # feature extraction
+> pca = PCA(n_components=3)
+> fit = pca.fit(X)
+> # summarize components
+> print("Explained Variance: %s" % fit.explained_variance_ratio_)
+> print(fit.components_)
+> ```
 
 
 
 4. Univariate Selection
 
-Output 변수와 가장 밀접한 feature를 찾는 방법론입니다. 
-Scikit-learn에서는 SelectKBest 를 제공해 다양한 통계적 기법과 병행해서 사용할 수 있도록 도와줍니다. 
-
-이번 예시는 ANOVA F-value 를 통해 통계적인 테스트 스캔을 사용합니다. 
-
-
-```Python
-
-# Feature Selection with Univariate Statistical Tests
-from pandas import read_csv
-from numpy import set_printoptions
-from sklearn.feature_selection import SelectKBest
-from sklearn.feature_selection import f_classif
-# load data
-filename = 'pima-indians-diabetes.data.csv'
-names = ['preg', 'plas', 'pres', 'skin', 'test', 'mass', 'pedi', 'age', 'class']
-dataframe = read_csv(filename, names=names)
-array = dataframe.values
-X = array[:,0:8]
-Y = array[:,8]
-# feature extraction
-test = SelectKBest(score_func=f_classif, k=4)
-fit = test.fit(X, Y)
-# summarize scores
-set_printoptions(precision=3)
-print(fit.scores_)
-features = fit.transform(X)
-# summarize selected features
-print(features[0:5,:])
-
-```
-
-
-
+> Output 변수와 가장 밀접한 feature를 찾는 방법론입니다. 
+> Scikit-learn에서는 SelectKBest 를 제공해 다양한 통계적 기법과 병행해서 사용할 수 있도록 도와줍니다. 
+> 이번 예시는 ANOVA F-value 를 통해 통계적인 테스트 스캔을 사용합니다. 
+> 
+> 
+> ```Python
+> # Feature Selection with Univariate Statistical Tests
+> from pandas import read_csv
+> from numpy import set_printoptions
+> from sklearn.feature_selection import SelectKBest
+> from sklearn.feature_selection import f_classif
+> # load data
+> filename = 'pima-indians-diabetes.data.csv'
+> names = ['preg', 'plas', 'pres', 'skin', 'test', 'mass', 'pedi', 'age', 'class']
+> dataframe = read_csv(filename, names=names)
+> array = dataframe.values
+> X = array[:,0:8]
+> Y = array[:,8]
+> # feature extraction
+> test = SelectKBest(score_func=f_classif, k=4)
+> fit = test.fit(X, Y)
+> # summarize scores
+> set_printoptions(precision=3)
+> print(fit.scores_)
+> features = fit.transform(X)
+> # summarize selected features
+> print(features[0:5,:])
+> 
+> ```
 
 회귀모델에는 보통 Recursive Feature Elimination 방법을, tree기반 앙상블 모델에는 feature importace 방법을 사용합니다. 
-
 
 
 
@@ -283,59 +267,59 @@ Scikit-learn에서는 hyper parameter 튜닝전략을 grid search와 random sear
 
 1. Grid Search Parameter Tuning
 
-Grid Search는 알고리즘 파라미터 조합을 grid 형식으로 모델에 적용해 평가하는 방법입니다. 
-
-```python
-
-# Grid Search for Algorithm Tuning
-import numpy as np
-from sklearn import datasets
-from sklearn.linear_model import Ridge
-from sklearn.model_selection import GridSearchCV
-# load the diabetes datasets
-dataset = datasets.load_diabetes()
-# prepare a range of alpha values to test
-alphas = np.array([1,0.1,0.01,0.001,0.0001,0])
-# create and fit a ridge regression model, testing each alpha
-model = Ridge()
-grid = GridSearchCV(estimator=model, param_grid=dict(alpha=alphas))
-grid.fit(dataset.data, dataset.target)
-print(grid)
-# summarize the results of the grid search
-print(grid.best_score_)
-print(grid.best_estimator_.alpha)
-
-```
+> Grid Search는 알고리즘 파라미터 조합을 grid 형식으로 모델에 적용해 평가하는 방법입니다. 
+> 
+> ```python
+> 
+> # Grid Search for Algorithm Tuning
+> import numpy as np
+> from sklearn import datasets
+> from sklearn.linear_model import Ridge
+> from sklearn.model_selection import GridSearchCV
+> # load the diabetes datasets
+> dataset = datasets.load_diabetes()
+> # prepare a range of alpha values to test
+> alphas = np.array([1,0.1,0.01,0.001,0.0001,0])
+> # create and fit a ridge regression model, testing each alpha
+> model = Ridge()
+> grid = GridSearchCV(estimator=model, param_grid=dict(alpha=alphas))
+> grid.fit(dataset.data, dataset.target)
+> print(grid)
+> # summarize the results of the grid search
+> print(grid.best_score_)
+> print(grid.best_estimator_.alpha)
+> 
+> ```
 
 
 
 
 2. Random Search Parameter Tuning
 
-Random search는 Random distribution으로 부터 알고리즘의 parameter들을 샘플링해서 튜닝하는 방법입니다. 
-
-```python
-
-# Randomized Search for Algorithm Tuning
-import numpy as np
-from scipy.stats import uniform as sp_rand
-from sklearn import datasets
-from sklearn.linear_model import Ridge
-from sklearn.model_selection import RandomizedSearchCV
-# load the diabetes datasets
-dataset = datasets.load_diabetes()
-# prepare a uniform distribution to sample for the alpha parameter
-param_grid = {'alpha': sp_rand()}
-# create and fit a ridge regression model, testing random alpha values
-model = Ridge()
-rsearch = RandomizedSearchCV(estimator=model, param_distributions=param_grid, n_iter=100)
-rsearch.fit(dataset.data, dataset.target)
-print(rsearch)
-# summarize the results of the random parameter search
-print(rsearch.best_score_)
-print(rsearch.best_estimator_.alpha)
-
-```
+> Random search는 Random distribution으로 부터 알고리즘의 parameter들을 샘플링해서 튜닝하는 방법입니다. 
+> 
+> ```python
+> 
+> # Randomized Search for Algorithm Tuning
+> import numpy as np
+> from scipy.stats import uniform as sp_rand
+> from sklearn import datasets
+> from sklearn.linear_model import Ridge
+> from sklearn.model_selection import RandomizedSearchCV
+> # load the diabetes datasets
+> dataset = datasets.load_diabetes()
+> # prepare a uniform distribution to sample for the alpha parameter
+> param_grid = {'alpha': sp_rand()}
+> # create and fit a ridge regression model, testing random alpha values
+> model = Ridge()
+> rsearch = RandomizedSearchCV(estimator=model, param_distributions=param_grid, n_iter=100)
+> rsearch.fit(dataset.data, dataset.target)
+> print(rsearch)
+> # summarize the results of the random parameter search
+> print(rsearch.best_score_)
+> print(rsearch.best_estimator_.alpha)
+> 
+> ```
 
 
 참고자료: \
