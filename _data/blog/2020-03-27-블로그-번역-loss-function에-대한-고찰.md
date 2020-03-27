@@ -34,7 +34,7 @@ Information 과 Entropy를 계산하는 것은 머신러닝에 아주 유용합�
 가장 기본적인 feature selection에서 부터, decision tree 모델링, classification 모델링 등에 사용합니다. 
 따라서, 머신러닝 전문가는 Information과 entropy에 대해 정학히 알아야 합니다.
 
-##### Information Theory
+#### Information Theory
 
 정보이론(Information Theory)은 데이터 압축 및 신호 처리와 같이 통신 분야와 밀접한 관계를 가진 수학의 한 분야 입니다. 
 
@@ -44,7 +44,7 @@ Information은 event, variables와 distribution(분포) 등에 대한 정보의 
 정보의 측정은 통신을 넘어서 AI, 머신러닝 분야까지 넓게 사용되고 있습니다. 
 
 
-##### Calculate the Information for an Event
+#### Calculate the Information for an Event
 
 정보를 정량화 한다는 것은 낮은 확률의 이벤트는 높은 정보를, 높은 확률의 이벤트는 낮은 정보를 갖는다는 데서 시작합니다. 
 
@@ -58,7 +58,7 @@ log 는 밑이 2인 것을 의미하며, 그 선택기준은 정보 측정단위
 log 함수에서 -가 붙여진 것은 x의 범위가 0~ 1사이로 항상 그 값은 양수를 의미하는 것입니다. 
 
 
-example) 동전에 대한 정보 값
+**example) 동전에 대한 정보 값**
 
 ```python
 
@@ -72,8 +72,9 @@ h = -log2(p)
 print('p(x)=%.3f, information: %.3f bits' % (p, h))
 
 ```
+  
 
-example) 주사위에 대한 정보 값
+**example) 주사위에 대한 정보 값**
 
 ```python
 
@@ -88,7 +89,7 @@ print('p(x)=%.3f, information: %.3f bits' % (p, h))
 
 ```
 
-example) 확률과 정보 간의 관계
+**example) 확률과 정보 간의 관계**
 
 
 ```python
@@ -110,7 +111,7 @@ pyplot.show()
 
 ```
 
-##### Calculate the Entropy for a Random Variable
+#### Calculate the Entropy for a Random Variable
 
 
 Entropy는 Random variable에 대한 확률 분포로 도출 된 이벤트를 나타내거나 전송하는데 필요한 비트수를 의미합니다. 
@@ -120,7 +121,7 @@ H(x) = -sum(each k in K p(k)*log(p(k))
 
 각 이벤트의 발생 확률과 비트수를 곱한 값의 합의 - 값으로 표현됩니다. 
 
-example) original python
+**example) original python**
 
 ```python
 
@@ -137,7 +138,7 @@ print('entropy: %.3f bits' % entropy)
 
 ```
 
-example) SciPy
+**example) SciPy**
 
 ```python
 
@@ -152,7 +153,7 @@ print('entropy: %.3f bits' % e)
 
 ```
 
-example) entropy 와 probability 간 관계
+**example) entropy 와 probability 간 관계**
 
 ```python
 
@@ -181,8 +182,7 @@ pyplot.show()
 ```
 
 
-
-
+- - -
 
 ### Cross-Entropy
 
@@ -215,7 +215,7 @@ KL(Kullback-Leibler) divergnece는 전체 비트수가 아닌, P대신에 Q로 �
 
 비교하기에 앞서, KL Divergence에 대해 좀더 이야기 해보고자 합니다. 
 
-##### [How to caculate the KL Divergence for Machine Learning](https://machinelearningmastery.com/divergence-between-probability-distributions/)
+#### [How to caculate the KL Divergence for Machine Learning](https://machinelearningmastery.com/divergence-between-probability-distributions/)
 
 주어진 Random variable의 확률분포간의 차이를 정량화하는 것은 매우 중요한데,
 머신러닝을 다루다 보면 실제 확률분포와 관측된 확률분포의 차이를 계산하는 경우가 종종 생기기 때문입니다. 
@@ -223,7 +223,7 @@ KL(Kullback-Leibler) divergnece는 전체 비트수가 아닌, P대신에 Q로 �
 이런 부분은 KL Divergence나 relative entropy, Jensen-Shannon Divergence(KL Divergence의 정규화된 버전)를 통해 해결합니다.
 KL Divergence 에 대해 이야기 하기 전에 통계학적 거리(Statistical Distance)에 대해 먼저 알아보겠습니다. 
 
-1. Statistical Distance
+**1. Statistical Distance**
 
 > 앞서 이야기한 것처럼, 두개의 확률분포를 비교하는 상황은 종종 발생합니다. 
 > 단일 변수에 대한 확률분포, 두개 변수에 대한 확률분포를 가지는 케이스를 말합니다. 
@@ -236,7 +236,7 @@ KL Divergence 에 대해 이야기 하기 전에 통계학적 거리(Statistical
 > Information 이론에서 주로 사용하는 Divergence score는 KL Divergence와 Jensen-Shannon Divergence 입니다. 
 
 
-2. Kullback-Leibler Divergence
+**2. Kullback-Leibler Divergence**
 
 > KL Divergence는 두 확률분포간에 서로 얼마나 다른지를 정량화 해서 점수를 매기는 방법입니다. 
 > P와 Q 간의 Divergence는 KL(P || Q)로 표기를 합니다.
@@ -319,7 +319,7 @@ KL Divergence 에 대해 이야기 하기 전에 통계학적 거리(Statistical
 > > ```
 
 
-> 3. Jensen-Shannon Divergence
+> **3. Jensen-Shannon Divergence**
 
 > JS Divergence는 두 확률분포간에 유사도 또는 차이를 정량화하는 방법들 중 하나 입니다. 
 > 확률 분포 P와 Q사이에 동일한 값을 갖도록 하는 방법으로 KL Divergence를 사용합니다.  
@@ -392,7 +392,7 @@ H(P, Q) = H(P) + KL(P || Q)
 
 ### Calculate Cross-Entropy
 
-1. Two Discrete Probability Distribution
+**1. Two Discrete Probability Distribution**
 
 > ```python
 > 
@@ -415,7 +415,7 @@ H(P, Q) = H(P) + KL(P || Q)
 > ```
 
 
-2. Calculate Cross-Entropy Between Distribution
+**2. Calculate Cross-Entropy Between Distribution**
 
 > ```python
 > 
@@ -439,7 +439,7 @@ H(P, Q) = H(P) + KL(P || Q)
 > ```
 
 
-3. Calculate Cross-Entropy Between a Distribution and Itself
+**3. Calculate Cross-Entropy Between a Distribution and Itself**
 
 > ```python
 > 
@@ -462,7 +462,7 @@ H(P, Q) = H(P) + KL(P || Q)
 > 
 > ```
 
-4. Calculate Cross-Entropy Using KL Divergence
+**4. Calculate Cross-Entropy Using KL Divergence**
 
 > ```python
 > 
@@ -579,7 +579,7 @@ print('Average Cross Entropy: %.3f nats' % mean_ce)
 
 ```
 
-- calculate Cross-entropy using Keras
+- **calculate Cross-entropy using Keras**
 
 > ```python
 > 
@@ -605,6 +605,7 @@ print('Average Cross Entropy: %.3f nats' % mean_ce)
 KL Divergence의 예를 통해 알수 있듯이 P가 크고 Q가 작거나 Q가 크고 P가 작으면 발산하기 때문입니다. 
 
 아래 코드를 통해 확인할 수 있습니다.
+
 ```python
 
 # cross-entropy for predicted probability distribution vs label
@@ -644,6 +645,8 @@ pyplot.show()
 - Cross-Entropy > 1.00 : Terrible
 - Cross-Entropy > 2.00 : Something broken
 
+
+- - -
 
 ### Cross-Entropy Versus Log Loss
 
