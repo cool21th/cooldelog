@@ -88,7 +88,7 @@ print(metrics.confusion_matrix(expected, predicted))
 기준이 서로 다르기 때문에 이러한 경우 데이터를 2가지 방법을 주로 사용합니다. Normalization과 Standardization 입니다. 
 
 
-1. Data Normalization
+**1. Data Normalization**
 
 > Normalization은 numeric 속성인 데이터를 0과 1범위안으로 rescaling 하는 방법입니다. 
 > kNN 과 같이 distance에 의존하는 모델에 적합한 방법입니다. 
@@ -111,7 +111,7 @@ print(metrics.confusion_matrix(expected, predicted))
   
   
   
-2. Data Standardization
+**2. Data Standardization**
 
 > Standardization은 평균이 0이고 표준 편차가 1이 되도록 각 속성의 의 분포를 이동시키는 방법입니다. 
 > Gaussian 을 활용한 모델링에 적합한 방법입니다. 
@@ -150,7 +150,7 @@ Feature selection을 통해 얻는 이점은 다음과 같이 3가지 입니다.
 
   
   
-1. Recursive Feature Elimination
+**1. Recursive Feature Elimination**
 
 > Recursive Feature Elimination 은 모델의 속성을 재귀적으로 제거하고, 모델링함으로써 정확도가 가장 높은 속성 조합을 찾아냅니다. 
 > 
@@ -173,7 +173,7 @@ Feature selection을 통해 얻는 이점은 다음과 같이 3가지 입니다.
 > ```
   
   
-2. Feature Importance
+**2. Feature Importance**
 
 > Feature Importance는 decision tree 기반의 앙상블모델(Random Forest or extra trees)들의 상대적인 중요 속성을 찾는데 사용합니다. 
 > 
@@ -194,7 +194,7 @@ Feature selection을 통해 얻는 이점은 다음과 같이 3가지 입니다.
   
   
   
-3. Principal Component Analysis
+**3. Principal Component Analysis**
 
 > PCA는 선형대수를 사용하여 데이터들을 압축한 형태로 변환합니다.
 > 
@@ -222,7 +222,7 @@ Feature selection을 통해 얻는 이점은 다음과 같이 3가지 입니다.
   
   
   
-4. Univariate Selection
+**4. Univariate Selection**
 
 > Output 변수와 가장 밀접한 feature를 찾는 방법론입니다. 
 > Scikit-learn에서는 SelectKBest 를 제공해 다양한 통계적 기법과 병행해서 사용할 수 있도록 도와줍니다. 
@@ -269,7 +269,7 @@ Scikit-learn에서는 hyper parameter 튜닝전략을 grid search와 random sear
 
   
   
-1. Grid Search Parameter Tuning
+**1. Grid Search Parameter Tuning**
 
 > Grid Search는 알고리즘 파라미터 조합을 grid 형식으로 모델에 적용해 평가하는 방법입니다. 
 > 
@@ -298,7 +298,7 @@ Scikit-learn에서는 hyper parameter 튜닝전략을 grid search와 random sear
   
   
   
-2. Random Search Parameter Tuning
+**2. Random Search Parameter Tuning**
 
 > Random search는 Random distribution으로 부터 알고리즘의 parameter들을 샘플링해서 튜닝하는 방법입니다. 
 > 
