@@ -14,7 +14,7 @@ thumbnail: /assets/crossentropy.png
 
 Cross-entropy는 머신러닝에서 가장 일반적인  loss function 입니다. 
 
-Cross-entropy는 정보이론(Information field) 분야에서 **두 확률 분포 사이의 차이를 계산하는 측정값** 을 의미합니다.
+Cross-entropy는 정보이론(Information field) 분야에서 **두 확률 분포 사이의 차이를 계산하는 측정값**을 의미합니다.
 두 확률 분포간에 상대적인 entropy 값을 계산하는 것이 KL diivergence 와 유사하지만, Cross-entropy에서는 Totla entropy를 계산한다는 부분이 다른점입니다
 
 Cross-entropy는 Logistic loss(log loss)와 유사하면서도 다릅니다.
@@ -257,70 +257,66 @@ KL Divergence 에 대해 이야기 하기 전에 통계학적 거리(Statistical
 
 > - 이벤트 별 확률 확인
 
-```python
-# plot of distributions
-from matplotlib import pyplot
-# define distributions
-events = ['red', 'green', 'blue']
-p = [0.10, 0.40, 0.50]
-q = [0.80, 0.15, 0.05]
-print('P=%.3f Q=%.3f' % (sum(p), sum(q)))
-# plot first distribution
-pyplot.subplot(2,1,1)
-pyplot.bar(events, p)
-# plot second distribution
-pyplot.subplot(2,1,2)
-pyplot.bar(events, q)
-# show the plot
-pyplot.show()
-
-```
+> > ```python
+> > # plot of distributions
+> > from matplotlib import pyplot
+> > # define distributions
+> > events = ['red', 'green', 'blue']
+> > p = [0.10, 0.40, 0.50]
+> > q = [0.80, 0.15, 0.05]
+> > print('P=%.3f Q=%.3f' % (sum(p), sum(q)))
+> > # plot first distribution
+> > pyplot.subplot(2,1,1)
+> > pyplot.bar(events, p)
+> > # plot second distribution
+> > pyplot.subplot(2,1,2)
+> > pyplot.bar(events, q)
+> > # show the plot
+> > pyplot.show()
+> > 
+> > ```
 
 > - KL divergence 를 통한 결과값 확인(original Python)
 
-```python
-
-# example of calculating the kl divergence between two mass functions
-from math import log2
- 
-# calculate the kl divergence
-def kl_divergence(p, q):
-	return sum(p[i] * log2(p[i]/q[i]) for i in range(len(p)))
- 
-# define distributions
-p = [0.10, 0.40, 0.50]
-q = [0.80, 0.15, 0.05]
-# calculate (P || Q)
-kl_pq = kl_divergence(p, q)
-print('KL(P || Q): %.3f bits' % kl_pq)
-# calculate (Q || P)
-kl_qp = kl_divergence(q, p)
-print('KL(Q || P): %.3f bits' % kl_qp)
-
-```
+> > ```python
+> > # example of calculating the kl divergence between two mass functions
+> > from math import log2
+> >  
+> > # calculate the kl divergence
+> > def kl_divergence(p, q):
+> > 	return sum(p[i] * log2(p[i]/q[i]) for i in range(len(p)))
+> >  
+> > # define distributions
+> > p = [0.10, 0.40, 0.50]
+> > q = [0.80, 0.15, 0.05]
+> > # calculate (P || Q)
+> > kl_pq = kl_divergence(p, q)
+> > print('KL(P || Q): %.3f bits' % kl_pq)
+> > # calculate (Q || P)
+> > kl_qp = kl_divergence(q, p)
+> > print('KL(Q || P): %.3f bits' % kl_qp)
+> > ```
 
 > - SciPy를 통한 KL divergence 확인
 > 
 > SciPy에서 KL divergence를 relative entropy 함수로 계산할수 있습니다. 
 > 다른 점은 log 밑이 2가 아닌 자연로그로 계산합니다.
 
-
-
-```python
-
-# example of calculating the kl divergence (relative entropy) with scipy
-from scipy.special import rel_entr
-# define distributions
-p = [0.10, 0.40, 0.50]
-q = [0.80, 0.15, 0.05]
-# calculate (P || Q)
-kl_pq = rel_entr(p, q)
-print('KL(P || Q): %.3f nats' % sum(kl_pq))
-# calculate (Q || P)
-kl_qp = rel_entr(q, p)
-print('KL(Q || P): %.3f nats' % sum(kl_qp))
-
-```
+> > ```python
+> > 
+> > # example of calculating the kl divergence (relative entropy) with scipy
+> > from scipy.special import rel_entr
+> > # define distributions
+> > p = [0.10, 0.40, 0.50]
+> > q = [0.80, 0.15, 0.05]
+> > # calculate (P || Q)
+> > kl_pq = rel_entr(p, q)
+> > print('KL(P || Q): %.3f nats' % sum(kl_pq))
+> > # calculate (Q || P)
+> > kl_qp = rel_entr(q, p)
+> > print('KL(Q || P): %.3f nats' % sum(kl_qp))
+> > 
+> > ```
 
 
 > 3. Jensen-Shannon Divergence
@@ -336,55 +332,52 @@ print('KL(Q || P): %.3f nats' % sum(kl_qp))
 
 > - Original Python
 
-```python
-
-
-# example of calculating the js divergence between two mass functions
-from math import log2
-from math import sqrt
-from numpy import asarray
- 
-# calculate the kl divergence
-def kl_divergence(p, q):
-	return sum(p[i] * log2(p[i]/q[i]) for i in range(len(p)))
- 
-# calculate the js divergence
-def js_divergence(p, q):
-	m = 0.5 * (p + q)
-	return 0.5 * kl_divergence(p, m) + 0.5 * kl_divergence(q, m)
- 
-# define distributions
-p = asarray([0.10, 0.40, 0.50])
-q = asarray([0.80, 0.15, 0.05])
-# calculate JS(P || Q)
-js_pq = js_divergence(p, q)
-print('JS(P || Q) divergence: %.3f bits' % js_pq)
-print('JS(P || Q) distance: %.3f' % sqrt(js_pq))
-# calculate JS(Q || P)
-js_qp = js_divergence(q, p)
-print('JS(Q || P) divergence: %.3f bits' % js_qp)
-print('JS(Q || P) distance: %.3f' % sqrt(js_qp))
-
-```
+> > ```python
+> > # example of calculating the js divergence between two mass functions
+> > from math import log2
+> > from math import sqrt
+> > from numpy import asarray
+> >  
+> > # calculate the kl divergence
+> > def kl_divergence(p, q):
+> > 	return sum(p[i] * log2(p[i]/q[i]) for i in range(len(p)))
+> >  
+> > # calculate the js divergence
+> > def js_divergence(p, q):
+> > 	m = 0.5 * (p + q)
+> > 	return 0.5 * kl_divergence(p, m) + 0.5 * kl_divergence(q, m)
+> >  
+> > # define distributions
+> > p = asarray([0.10, 0.40, 0.50])
+> > q = asarray([0.80, 0.15, 0.05])
+> > # calculate JS(P || Q)
+> > js_pq = js_divergence(p, q)
+> > print('JS(P || Q) divergence: %.3f bits' % js_pq)
+> > print('JS(P || Q) distance: %.3f' % sqrt(js_pq))
+> > # calculate JS(Q || P)
+> > js_qp = js_divergence(q, p)
+> > print('JS(Q || P) divergence: %.3f bits' % js_qp)
+> > print('JS(Q || P) distance: %.3f' % sqrt(js_qp))
+> > 
+> > ```
 
 > - SciPy 활용
 
-```python
-
-# calculate the jensen-shannon distance metric
-from scipy.spatial.distance import jensenshannon
-from numpy import asarray
-# define distributions
-p = asarray([0.10, 0.40, 0.50])
-q = asarray([0.80, 0.15, 0.05])
-# calculate JS(P || Q)
-js_pq = jensenshannon(p, q, base=2)
-print('JS(P || Q) Distance: %.3f' % js_pq)
-# calculate JS(Q || P)
-js_qp = jensenshannon(q, p, base=2)
-print('JS(Q || P) Distance: %.3f' % js_qp)
-
-```
+> > ```python
+> > # calculate the jensen-shannon distance metric
+> > from scipy.spatial.distance import jensenshannon
+> > from numpy import asarray
+> > # define distributions
+> > p = asarray([0.10, 0.40, 0.50])
+> > q = asarray([0.80, 0.15, 0.05])
+> > # calculate JS(P || Q)
+> > js_pq = jensenshannon(p, q, base=2)
+> > print('JS(P || Q) Distance: %.3f' % js_pq)
+> > # calculate JS(Q || P)
+> > js_qp = jensenshannon(q, p, base=2)
+> > print('JS(Q || P) Distance: %.3f' % js_qp)
+> > 
+> > ```
 
 
 위의 글에서 볼 수 있듯이 KL Divergence 는 relative entropy인 것을 확인 할 수 있습니다. 
@@ -401,107 +394,107 @@ H(P, Q) = H(P) + KL(P || Q)
 
 1. Two Discrete Probability Distribution
 
-```python
-
-# plot of distributions
-from matplotlib import pyplot
-# define distributions
-events = ['red', 'green', 'blue']
-p = [0.10, 0.40, 0.50]
-q = [0.80, 0.15, 0.05]
-print('P=%.3f Q=%.3f' % (sum(p), sum(q)))
-# plot first distribution
-pyplot.subplot(2,1,1)
-pyplot.bar(events, p)
-# plot second distribution
-pyplot.subplot(2,1,2)
-pyplot.bar(events, q)
-# show the plot
-pyplot.show()
-
-```
+> ```python
+> 
+> # plot of distributions
+> from matplotlib import pyplot
+> # define distributions
+> events = ['red', 'green', 'blue']
+> p = [0.10, 0.40, 0.50]
+> q = [0.80, 0.15, 0.05]
+> print('P=%.3f Q=%.3f' % (sum(p), sum(q)))
+> # plot first distribution
+> pyplot.subplot(2,1,1)
+> pyplot.bar(events, p)
+> # plot second distribution
+> pyplot.subplot(2,1,2)
+> pyplot.bar(events, q)
+> # show the plot
+> pyplot.show()
+> 
+> ```
 
 
 2. Calculate Cross-Entropy Between Distribution
 
-```python
-
-# example of calculating cross entropy
-from math import log2
- 
-# calculate cross entropy
-def cross_entropy(p, q):
-	return -sum([p[i]*log2(q[i]) for i in range(len(p))])
- 
-# define data
-p = [0.10, 0.40, 0.50]
-q = [0.80, 0.15, 0.05]
-# calculate cross entropy H(P, Q)
-ce_pq = cross_entropy(p, q)
-print('H(P, Q): %.3f bits' % ce_pq)
-# calculate cross entropy H(Q, P)
-ce_qp = cross_entropy(q, p)
-print('H(Q, P): %.3f bits' % ce_qp)
-
-```
+> ```python
+> 
+> # example of calculating cross entropy
+> from math import log2
+>  
+> # calculate cross entropy
+> def cross_entropy(p, q):
+> 	return -sum([p[i]*log2(q[i]) for i in range(len(p))])
+>  
+> # define data
+> p = [0.10, 0.40, 0.50]
+> q = [0.80, 0.15, 0.05]
+> # calculate cross entropy H(P, Q)
+> ce_pq = cross_entropy(p, q)
+> print('H(P, Q): %.3f bits' % ce_pq)
+> # calculate cross entropy H(Q, P)
+> ce_qp = cross_entropy(q, p)
+> print('H(Q, P): %.3f bits' % ce_qp)
+> 
+> ```
 
 
 3. Calculate Cross-Entropy Between a Distribution and Itself
 
-```python
-
-# example of calculating cross entropy for identical distributions
-from math import log2
- 
-# calculate cross entropy
-def cross_entropy(p, q):
-	return -sum([p[i]*log2(q[i]) for i in range(len(p))])
- 
-# define data
-p = [0.10, 0.40, 0.50]
-q = [0.80, 0.15, 0.05]
-# calculate cross entropy H(P, P)
-ce_pp = cross_entropy(p, p)
-print('H(P, P): %.3f bits' % ce_pp)
-# calculate cross entropy H(Q, Q)
-ce_qq = cross_entropy(q, q)
-print('H(Q, Q): %.3f bits' % ce_qq)
-
-```
+> ```python
+> 
+> # example of calculating cross entropy for identical distributions
+> from math import log2
+>  
+> # calculate cross entropy
+> def cross_entropy(p, q):
+> 	return -sum([p[i]*log2(q[i]) for i in range(len(p))])
+>  
+> # define data
+> p = [0.10, 0.40, 0.50]
+> q = [0.80, 0.15, 0.05]
+> # calculate cross entropy H(P, P)
+> ce_pp = cross_entropy(p, p)
+> print('H(P, P): %.3f bits' % ce_pp)
+> # calculate cross entropy H(Q, Q)
+> ce_qq = cross_entropy(q, q)
+> print('H(Q, Q): %.3f bits' % ce_qq)
+> 
+> ```
 
 4. Calculate Cross-Entropy Using KL Divergence
 
-```python
-
-# example of calculating cross entropy with kl divergence
-from math import log2
- 
-# calculate the kl divergence KL(P || Q)
-def kl_divergence(p, q):
-	return sum(p[i] * log2(p[i]/q[i]) for i in range(len(p)))
- 
-# calculate entropy H(P)
-def entropy(p):
-	return -sum([p[i] * log2(p[i]) for i in range(len(p))])
- 
-# calculate cross entropy H(P, Q)
-def cross_entropy(p, q):
-	return entropy(p) + kl_divergence(p, q)
- 
-# define data
-p = [0.10, 0.40, 0.50]
-q = [0.80, 0.15, 0.05]
-# calculate H(P)
-en_p = entropy(p)
-print('H(P): %.3f bits' % en_p)
-# calculate kl divergence KL(P || Q)
-kl_pq = kl_divergence(p, q)
-print('KL(P || Q): %.3f bits' % kl_pq)
-# calculate cross entropy H(P, Q)
-ce_pq = cross_entropy(p, q)
-print('H(P, Q): %.3f bits' % ce_pq)
-
-```
+> ```python
+> 
+> # example of calculating cross entropy with kl divergence
+> from math import log2
+>  
+> # calculate the kl divergence KL(P || Q)
+> def kl_divergence(p, q):
+> 	return sum(p[i] * log2(p[i]/q[i]) for i in range(len(p)))
+>  
+> # calculate entropy H(P)
+> def entropy(p):
+> 	return -sum([p[i] * log2(p[i]) for i in range(len(p))])
+>  
+> # calculate cross entropy H(P, Q)
+> def cross_entropy(p, q):
+> 	return entropy(p) + kl_divergence(p, q)
+>  
+> # define data
+> p = [0.10, 0.40, 0.50]
+> q = [0.80, 0.15, 0.05]
+> # calculate H(P)
+> en_p = entropy(p)
+> print('H(P): %.3f bits' % en_p)
+> # calculate kl divergence KL(P || Q)
+> kl_pq = kl_divergence(p, q)
+> print('KL(P || Q): %.3f bits' % kl_pq)
+> # calculate cross entropy H(P, Q)
+> ce_pq = cross_entropy(p, q)
+> print('H(P, Q): %.3f bits' % ce_pq)
+> 
+> ```
 
 
 
@@ -588,23 +581,23 @@ print('Average Cross Entropy: %.3f nats' % mean_ce)
 
 - calculate Cross-entropy using Keras
 
-```python
-
-# calculate cross entropy with keras
-from numpy import asarray
-from keras import backend
-from keras.losses import binary_crossentropy
-# prepare classification data
-p = asarray([1, 1, 1, 1, 1, 0, 0, 0, 0, 0])
-q = asarray([0.8, 0.9, 0.9, 0.6, 0.8, 0.1, 0.4, 0.2, 0.1, 0.3])
-# convert to keras variables
-y_true = backend.variable(p)
-y_pred = backend.variable(q)
-# calculate the average cross-entropy
-mean_ce = backend.eval(binary_crossentropy(y_true, y_pred))
-print('Average Cross Entropy: %.3f nats' % mean_ce)
-
-```
+> ```python
+> 
+> # calculate cross entropy with keras
+> from numpy import asarray
+> from keras import backend
+> from keras.losses import binary_crossentropy
+> # prepare classification data
+> p = asarray([1, 1, 1, 1, 1, 0, 0, 0, 0, 0])
+> q = asarray([0.8, 0.9, 0.9, 0.6, 0.8, 0.1, 0.4, 0.2, 0.1, 0.3])
+> # convert to keras variables
+> y_true = backend.variable(p)
+> y_pred = backend.variable(q)
+> # calculate the average cross-entropy
+> mean_ce = backend.eval(binary_crossentropy(y_true, y_pred))
+> print('Average Cross Entropy: %.3f nats' % mean_ce)
+> 
+> ```
 
 ### Intuition for Cross-Entropy on Predicted Probabilites
 
