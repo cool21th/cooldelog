@@ -14,7 +14,8 @@ thumbnail: /assets/sklearn.png
 
 그만큼 Scikit-learn은 머신러닝 개발에서 부터 운영까지 충족시켜주는 아주 강력한 라이브러리입니다.
 Scikit-learn의 소개와 기본적인 기능에 대해 먼저 소개하고 이후 다양한 사용방법에 대한 내용을 다루고자 합니다.
-
+  
+  
 
 ### Scikit-learn 소개
 
@@ -36,8 +37,9 @@ SciKits은 SciPy 라이브러리의 확장형 모듈을 의미합니다.
 
 주 사용 언어는 Python이지만, c 라이브러리들을 활용해서 LAPACK, LibSVM, cython을 활용하여 
 배열 및 행렬 연산에 있어서 Numpy와 같은 성능을 발휘합니다. 
-
-
+  
+  
+  
 ### Scikit-learn Feature
 
 Scikit-learn 은 Numpy, Pandas와 다르게 데이터를 로딩, 조작, 요약하는데 중점을 두고 있지 않습니다. 
@@ -54,9 +56,10 @@ Scikit-learn 은 Numpy, Pandas와 다르게 데이터를 로딩, 조작, 요약�
 - Parameter Tuning: supervised 모델의 최선의 예측결과 도출
 - Manifold Learning: 복잡한 다차원의 데이터 요약및 묘사
 - Supervised Learning: Linear, 나이브베이즈, Decision Tree, SVM, nn 등 다양한 모델 지원
-
+  
+  
 ### Example: Classification and Regression trees
-
+  
 ```python
 # Sample Decision Tree Classifier
 from sklearn import datasets
@@ -76,9 +79,9 @@ print(metrics.classification_report(expected, predicted))
 print(metrics.confusion_matrix(expected, predicted))
 
 ```
-
-
-
+  
+  
+  
 ### Example:[Data Rescaling](https://machinelearningmastery.com/rescaling-data-for-machine-learning-in-python-with-scikit-learn/)
 
 데이터 속성에서 달러, 킬로그램 및 판매량과 같은 다양한 수량에 대한 비율이 혼합된 속성이 포함될 수 있습니다. 
@@ -105,9 +108,9 @@ print(metrics.confusion_matrix(expected, predicted))
 > normalized_X = preprocessing.normalize(X)
 > 
 > ```
-
-
-
+  
+  
+  
 2. Data Standardization
 
 > Standardization은 평균이 0이고 표준 편차가 1이 되도록 각 속성의 의 분포를 이동시키는 방법입니다. 
@@ -128,9 +131,9 @@ print(metrics.confusion_matrix(expected, predicted))
 > standardized_X = preprocessing.scale(X)
 > 
 > ```
-
-
-
+  
+  
+  
 ### [Feature Selection](https://machinelearningmastery.com/feature-selection-machine-learning-python/)
 
 Feature selection은 예측 변수 또는 도출하고 싶은 결과에 기여하는 feature들을 선택하는 방법입니다. 
@@ -145,8 +148,8 @@ Feature selection을 통해 얻는 이점은 다음과 같이 3가지 입니다.
 이를 위해 Scikit-learn에서 가장 기본적인 방법은 Recursive Feature Elimination 과 Feature importance ranking 이 있고,
 선형대수를 적용한 Principal Component Analysis, 변수 하나에 대한 통계학적인 접근(Univariate Selection) 등이 있습니다
 
-
-
+  
+  
 1. Recursive Feature Elimination
 
 > Recursive Feature Elimination 은 모델의 속성을 재귀적으로 제거하고, 모델링함으로써 정확도가 가장 높은 속성 조합을 찾아냅니다. 
@@ -168,7 +171,8 @@ Feature selection을 통해 얻는 이점은 다음과 같이 3가지 입니다.
 > print(rfe.support_)
 > print(rfe.ranking_)
 > ```
-
+  
+  
 2. Feature Importance
 
 > Feature Importance는 decision tree 기반의 앙상블모델(Random Forest or extra trees)들의 상대적인 중요 속성을 찾는데 사용합니다. 
@@ -187,9 +191,9 @@ Feature selection을 통해 얻는 이점은 다음과 같이 3가지 입니다.
 > # display the relative importance of each attribute
 > print(model.feature_importances_)
 > ```
-
-
-
+  
+  
+  
 3. Principal Component Analysis
 
 > PCA는 선형대수를 사용하여 데이터들을 압축한 형태로 변환합니다.
@@ -215,9 +219,9 @@ Feature selection을 통해 얻는 이점은 다음과 같이 3가지 입니다.
 > print("Explained Variance: %s" % fit.explained_variance_ratio_)
 > print(fit.components_)
 > ```
-
-
-
+  
+  
+  
 4. Univariate Selection
 
 > Output 변수와 가장 밀접한 feature를 찾는 방법론입니다. 
@@ -252,9 +256,9 @@ Feature selection을 통해 얻는 이점은 다음과 같이 3가지 입니다.
 
 회귀모델에는 보통 Recursive Feature Elimination 방법을, tree기반 앙상블 모델에는 feature importace 방법을 사용합니다. 
 
-
-
-
+  
+  
+  
 ### [Algorithm Parameter tuning](https://machinelearningmastery.com/how-to-tune-algorithm-parameters-with-scikit-learn/)
 
 
@@ -263,8 +267,8 @@ Feature selection을 통해 얻는 이점은 다음과 같이 3가지 입니다.
 
 Scikit-learn에서는 hyper parameter 튜닝전략을 grid search와 random search 두가지 제시합니다. 
 
-
-
+  
+  
 1. Grid Search Parameter Tuning
 
 > Grid Search는 알고리즘 파라미터 조합을 grid 형식으로 모델에 적용해 평가하는 방법입니다. 
@@ -290,10 +294,10 @@ Scikit-learn에서는 hyper parameter 튜닝전략을 grid search와 random sear
 > print(grid.best_estimator_.alpha)
 > 
 > ```
-
-
-
-
+  
+  
+  
+  
 2. Random Search Parameter Tuning
 
 > Random search는 Random distribution으로 부터 알고리즘의 parameter들을 샘플링해서 튜닝하는 방법입니다. 
